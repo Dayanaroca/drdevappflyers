@@ -1,0 +1,115 @@
+.iti {
+  width: 100% !important;
+}
+.iti input {
+  width: 100%;
+  padding-left: 5rem !important; /
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+    background-color: transparent !important;
+}
+.iti__arrow {
+    border-top: 4px solid #FFF !important;
+}
+.iti__selected-dial-code {
+  color: white
+}
+
+.testimonial-swiper .swiper-slide {
+  filter: blur(4px);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.testimonial-swiper .swiper-slide-active {
+  filter: none;
+  opacity: 1;
+}
+.testimonial-swiper,
+.testimonial-swiper .swiper-wrapper {
+  overflow: visible !important;
+}
+.testimonial-swiper .swiper-wrapper {
+  max-width: 100%;
+}
+
+.hero-prev.custom-prev,
+.hero-next.custom-next {
+   color: #EE2737; 
+}
+
+/* efect Fade in up */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px); 
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+.fade-in-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+.fade-in-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+.fade-in-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
+/* efect ZoomIn */
+.zoom-in-effect {
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+.zoom-in-effect.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.subitem a {
+    text-transform: none; 
+    color: #0A0B0A; 
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.subitem a:hover {
+    color: #EE2737;
+}
+
+
+@media (max-width: 1023px) {
+  .hero-prev.custom-prev,
+  .hero-next.custom-next {
+   color: #FFF; 
+}
+}
