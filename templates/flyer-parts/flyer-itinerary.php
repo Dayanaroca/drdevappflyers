@@ -1,0 +1,55 @@
+<?php
+if (!defined('ABSPATH')) exit;
+/**
+ * Variables:
+ * - $post_id
+ * - $itinerary
+ */
+
+$itinerary = get_field('itinerary', $post_id);
+if ( empty($itinerary['date']) ) {
+    return;
+}
+
+// Título general (solo una vez)
+?>
+<table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; box-sizing:border-box; padding:0 30px 0 30px;">
+    <tr>
+        <td style="text-align:left; vertical-align:top;">
+            <span style="font-size:11px; color:#000000; font-weight:700;">
+                <?php echo esc_html__('Itinerario', 'drdevsalaprensa'); ?>
+            </span>
+        </td>
+    </tr>
+    <tr><td style="border-bottom:1px solid #000; height:6px;"></td></tr>
+</table>
+
+<?php
+// Por cada día, creamos una tabla separada
+foreach ( $itinerary['date'] as $index => $day ) :
+
+    $title = isset($day['itinerary_title']) ? $day['itinerary_title'] : '';
+    $desc  = isset($day['itinerary_description']) ? $day['itinerary_description'] : '';
+
+    // Cada día va en su propia tabla completa
+    ?>
+    <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; box-sizing:border-box; padding:0px 30px 0 30px; margin-bottom:6px;">
+        <tr>
+            <td style="vertical-align:top; font-size:11px; color:#000; padding-top:10px;">
+                <?php if ( ! empty( $title ) ) : ?>
+                    <div style="font-weight:700; margin-bottom:3px;">
+                        <?php echo esc_html( $title ); ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ( ! empty( $desc ) ) : ?>
+                    <div style="font-weight:normal; line-height:1.3;">
+                        <?php echo wp_kses_post( $desc ); ?>
+                    </div>
+                <?php endif; ?>
+            </td>
+        </tr>
+    </table>
+<?php
+endforeach;
+?>

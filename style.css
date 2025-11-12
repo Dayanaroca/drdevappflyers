@@ -1,0 +1,94 @@
+/*
+Theme Name: drdevappflyers
+Author: Dayana Roca
+Version: 0.0.1
+Description: Tema personalizado con Tailwind CSS, optimizado para SEO y accesibilidad.
+Requires at least: 5.8
+Tested up to: 6.5
+License: GNU General Public License v2 or later
+Text Domain: drdevappflyers
+*/
+
+/* @media print {
+    .flyer-a4 {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        page-break-after: always; 
+    }
+} */
+
+@page {
+  size: letter;
+  margin: 0mm; 
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 216mm;
+  height: 279mm;
+  background: #ffffff;
+}
+
+/* .flyer-letter {
+  width: 216mm;
+  height: 279mm;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  page-break-after: always;
+} */
+
+.flyer-letter {
+  width: 216mm;
+  /* height: auto;  */
+  height: 279mm;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+.page {
+  width: 216mm;
+  height: 279mm; /* tamaño carta exacto */
+  position: relative;
+  overflow: hidden; /* asegura que no desborde el contenido visual */
+  page-break-after: always; /* fuerza salto de página después */
+}
+
+.page:last-child {
+  page-break-after: auto;
+}
+
+
+img, div, p, h1, h2, h3, span {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body, table, div, p, h1, h2, h3, h4, span {
+    font-family: 'Inter', sans-serif;
+}
+
+table, tr, td, div {
+  page-break-inside: avoid;
+}
+
+.drdev-error {
+  background: #ffe6e6;
+  border-color: #d12626;
+  color: #cc2727; 
+  border-left: 3px solid #d12626;
+  padding: 3px 12px;
+  position: relative;
+}
