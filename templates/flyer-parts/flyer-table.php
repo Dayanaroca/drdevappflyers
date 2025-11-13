@@ -9,9 +9,13 @@ if (!defined('ABSPATH')) exit;
 
 
 $table_of_contents = get_field('table_of_contents', $post_id);
-
+if (empty($brand_color) || strtolower($brand_color) === '#000' || strtolower($brand_color) === '#000000') {
+    $brand_color_light = '#EFEFEF';
+} else {
+    $brand_color_light = lighten_color($brand_color, 20);
+}
 if (empty($table_of_contents)) {
-    return; // no hay datos
+    return; 
 }
 
 $headers = [];
@@ -49,10 +53,10 @@ foreach ($columns_data as $col) {
 
 // Generar la tabla
 ?>
-<table width="100%" cellpadding="5" cellspacing="0" style="width:100%; border-collapse:collapse; border-collapse:collapse; box-sizing:border-box; padding:10 30px 10 30px;">
+<table width="100%" cellpadding="5" cellspacing="0" style="width:100%; padding:10px 30px 0 30px; border-collapse:collapse; border:none;">
     <tr>
         <?php foreach ($headers as $header): ?>
-            <td style="background:#EFEFEF; vertical-align:middle; text-align:center; padding:5px; font-size: 11px; font-weight: 600;">
+            <td style="background:<?php echo $brand_color_light; ?>; vertical-align:middle; text-align:center; padding:5px; font-size: 14px; font-weight: 600; line-height:15px; border:none;">
                 <?php echo esc_html($header); ?>
             </td>
         <?php endforeach; ?>
@@ -64,7 +68,7 @@ foreach ($columns_data as $col) {
                 <?php
                 $cell_content = isset($columns_data[$col_num][$row]) ? $columns_data[$col_num][$row] : '';
                 ?>
-                <td style="vertical-align:middle; text-align:center; padding:5px; font-size: 10px; font-weight: 400;">
+                <td style="vertical-align:middle; text-align:center; padding:5px; font-size: 13px; font-weight: 400; line-height:14px; border:none;">
                     <?php echo wp_kses_post($cell_content); ?>
                 </td>
             <?php endfor; ?>

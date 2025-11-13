@@ -13,7 +13,7 @@ $description   = get_post_meta($post_id, 'description', true);
     <tr>
         <td style="text-align:left; vertical-align:top;">
             <?php if (!empty($description)): ?>
-                <span style="font-size:11px; color:#000; font-weight: 400; line-height:1.2em;">
+                <span style="font-size:13px; color:#000; font-weight: 400; line-height:14px;">
                     <?php echo wpautop( wp_kses_post($description) ); ?>
                 </span>
             <?php endif; ?>

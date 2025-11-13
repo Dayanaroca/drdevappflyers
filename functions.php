@@ -71,91 +71,97 @@ function file_or_url_to_data_uri($source) {
     return 'data:' . $mime . ';base64,' . base64_encode($data);
 }
 
-
 function calculate_available_height($post_id, $template_selected) {
     $base_heights_mm = [
         1 => 55,
         2 => 71,
         3 => 87
     ];
-    $header_height_mm = ($base_heights_mm[$template_selected] ?? 55) * 0.9; // usa 90% del header
+    
+    $header_height_mm = ($base_heights_mm[$template_selected] ?? 55);
 
-    $description = get_post_meta($post_id, 'description', true);
-    $desc_text_length = mb_strlen(strip_tags($description));
-    $desc_lines = ceil($desc_text_length / 80);
-    $desc_height_mm = $desc_lines * 4;
+    // Calcular altura real de descriptions.php
+    $descriptions_height_mm = calculate_descriptions_real_height($post_id);
 
-    $margins_mm = 6; // menor margen
+    $margins_mm = 4;
     $page_height_mm = 279;
 
-    $available_height_mm = $page_height_mm - $header_height_mm - $margins_mm;
+    $available_height_mm = $page_height_mm - $header_height_mm - $descriptions_height_mm - $margins_mm;
     $available_height_px = $available_height_mm * 3.78;
 
-    // +15% de holgura para aprovechar más la página
-    $available_height_px *= 1.21;
+    error_log("=== CALCULATING AVAILABLE HEIGHT ===");
+    error_log("Template: {$template_selected}");
+    error_log("Header: {$header_height_mm}mm, Descriptions: {$descriptions_height_mm}mm");
+    error_log("Available: {$available_height_mm}mm ({$available_height_px}px)");
 
-    // error_log("=== CALCULATING AVAILABLE HEIGHT ===");
-    // error_log("Template: {$template_selected}, Header: {$header_height_mm}mm");
-    // error_log("Description: {$desc_text_length} chars = {$desc_lines} lines = {$desc_height_mm}mm");
-    // error_log("Available: {$available_height_mm}mm ({$available_height_px}px)");
-
-    return max(50 * 3.78, $available_height_px);
+    return max(20 * 3.78, $available_height_px);
 }
 
 
+function calculate_descriptions_real_height($post_id) {
+    $description = get_post_meta($post_id, 'description', true);
+    
+    if (empty($description)) {
+        return 0; // Altura mínima con título
+    }
+    
+    $line_height_px = 16; // Altura de línea en píxeles
+    $chars_per_line = 100; // Caracteres que caben por línea en tu contenedor
+    $base_height = 0; // Altura base (título + padding)
+    
+    $clean_text = strip_tags($description);
+    $total_chars = mb_strlen($clean_text);
+    
+    // Calcular líneas exactas
+    $lines = ceil($total_chars / $chars_per_line);
+    
+    // Altura total
+    $height = $base_height + ($lines * $line_height_px);
+    $heightmm = $height / 3.78; 
+    error_log("Descriptions: {$total_chars} chars = {$lines} lines = {$heightmm}mm");
+    
+    return $heightmm;
+}
 
 function split_tables_by_available_height($html, $available_height_px) {
     if (trim($html) === '') return ['', ''];
 
-    // Capturar todas las tablas del HTML (cada día del itinerario)
     preg_match_all('/(<table\b[^>]*>.*?<\/table>)/is', $html, $matches);
     $tables = $matches[0];
-    if (empty($tables)) return [$html, '']; // no hay tablas
+    if (empty($tables)) return [$html, ''];
 
     $part1 = '';
     $part2 = '';
     $used_height = 0;
+    
+    // Margen inferior de 15px
+    $effective_available_height = $available_height_px - 15;
 
     foreach ($tables as $idx => $table_html) {
-        $text = strip_tags($table_html);
-        $len = mb_strlen($text);
-        $approx_lines = ceil($len / 80);
-        $table_height = ($approx_lines * 11) + 40; // estimación realista
-
-        // Si aún cabe o es la primera
-        if (($used_height + $table_height) <= $available_height_px || $used_height === 0) {
+        $table_height = calculate_table_height($table_html);
+        
+        // SOLO agregar a part1 si CABE COMPLETAMENTE
+        if (($used_height + $table_height) <= $effective_available_height) {
             $part1 .= $table_html;
             $used_height += $table_height;
+            error_log("✓ Day " . ($idx + 1) . " added to page 1");
         } else {
-            $part2 .= $table_html;
+            // NO CABE - ir a part2 y terminar
+            $part2 = implode('', array_slice($tables, $idx));
+            error_log("✗ From Day " . ($idx + 1) . " onwards moved to page 2");
+            break;
         }
     }
 
-    // Si part2 quedó vacía, todo va en la primera
-    if (trim($part2) === '') {
-        return [$html, ''];
-    }
-
+    error_log("Final - Page 1: {$used_height}px of {$effective_available_height}px used");
     return [trim($part1), trim($part2)];
 }
 
-
-
-function calculate_html_height($html) {
-    if (trim($html) === '') return 0;
-    
-    $total_height_px = 0;
-    preg_match_all('/(<table[^>]*>.*?<\/table>)/is', $html, $tables);
-    
-    foreach ($tables[0] as $table) {
-        $text_content = strip_tags($table);
-        $text_length = mb_strlen($text_content);
-        $approx_lines = ceil($text_length / 70);
-        $table_height_px = ($approx_lines * 12) + 20;
-        $total_height_px += $table_height_px;
-    }
-    
-    return $total_height_px;
+function calculate_table_height($table_html) {
+    $text = strip_tags($table_html);
+    $len = mb_strlen($text);
+    $approx_lines = ceil($len / 80);
+    return ($approx_lines * 10) + 20;
 }
 
 function fine_tune_itinerary_split($part1, $part2, $available_height_px) {
@@ -164,50 +170,16 @@ function fine_tune_itinerary_split($part1, $part2, $available_height_px) {
         return [$part1, $part2];
     }
     
+    // SOLO registrar información, sin cambiar el orden
     preg_match_all('/(<table[^>]*>.*?<\/table>)/is', $part1, $tables1);
     preg_match_all('/(<table[^>]*>.*?<\/table>)/is', $part2, $tables2);
     
     $days_part1 = count($tables1[0]);
     $days_part2 = count($tables2[0]);
     
-    // Solo hacer ajustes si tenemos días en ambas partes
-    if ($days_part1 > 0 && $days_part2 > 0) {
-        $current_used_height_px = calculate_html_height($part1);
-        
-        // Caso 1: Si part1 está muy vacía (< 60% usado) y part2 tiene contenido
-        if ($current_used_height_px < ($available_height_px * 0.8)) {
-
-            $first_table_from_part2 = $tables2[0][0];
-            $first_table_height_px = calculate_html_height($first_table_from_part2);
-            
-            // Si cabe en el espacio disponible
-            if (($current_used_height_px + $first_table_height_px) <= $available_height_px) {
-                // Mover el primer día de part2 a part1
-                $new_part1 = $part1 . $first_table_from_part2;
-                $new_part2 = implode('', array_slice($tables2[0], 1));
-                
-                error_log("✓ Fine-tune: Moved 1 day from part2 to part1");
-                return [trim($new_part1), trim($new_part2)];
-            }
-        }
-        
-        // Caso 2: Si part1 está muy llena (> 95% usado) y tiene más de 1 día
-        if ($current_used_height_px > ($available_height_px * 0.95) && $days_part1 > 1) {
-            $last_table_from_part1 = end($tables1[0]);
-            $last_table_height_px = calculate_html_height($last_table_from_part1);
-            
-            // Si al quitar el último día, part1 sigue teniendo contenido suficiente (> 40%)
-            if (($current_used_height_px - $last_table_height_px) > ($available_height_px * 0.4)) {
-                // Quitar el último día de part1 y ponerlo al inicio de part2
-                $new_part1 = implode('', array_slice($tables1[0], 0, -1));
-                $new_part2 = $last_table_from_part1 . $part2;
-                
-                error_log("✓ Fine-tune: Moved 1 day from part1 to part2");
-                return [trim($new_part1), trim($new_part2)];
-            }
-        }
-    }
+    error_log("Fine-tune INFO - Page 1: {$days_part1} days, Page 2: {$days_part2} days");
     
+    // NO hacer ningún cambio que altere el orden secuencial
     return [$part1, $part2];
 }
 /**
@@ -591,3 +563,20 @@ function asignar_capacidades_wpml_completas() {
     }
 }
 add_action('init', 'asignar_capacidades_wpml_completas');
+
+function lighten_color($hex, $percent) {
+    $hex = str_replace('#', '', $hex);
+
+    // Convertir a RGB
+    $r = hexdec(substr($hex, 0, 2));
+    $g = hexdec(substr($hex, 2, 2));
+    $b = hexdec(substr($hex, 4, 2));
+
+    // Aclarar (subir valores en base al porcentaje)
+    $r = min(255, $r + ($r * $percent / 100));
+    $g = min(255, $g + ($g * $percent / 100));
+    $b = min(255, $b + ($b * $percent / 100));
+
+    // Devolver como color HEX válido
+    return sprintf('#%02x%02x%02x', $r, $g, $b);
+}

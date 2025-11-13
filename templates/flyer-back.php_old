@@ -16,28 +16,19 @@ if (!defined('ABSPATH')) exit;
  * - $bg_header (ID)
  */
 
-$template_selected_back = intval(get_post_meta($post_id, '_template_selected_back', true)) ?: 1;
+$template_selected_back = intval(get_post_meta($post_id, '_template_selected_back', true)) ?: 4;
 
 switch (intval($template_selected_back)) {
-    case 1:
+    case 4:
         include locate_template('templates/flyer-parts/flyer-header_back.php');
         break;
-    case 2:
-        $size_header_front = '269px';
-        $size_title = '24px';
-        $col_width = '350px';
-        $td_height = '0px';
+    case 5:
+     
         break;
-    case 3:
-        $size_header_front = '329px';
-        $size_title = '24px';
-        $col_width = '350px';
-        $td_height = '50px';
+    case 6:
+      
         break;
     default:
-        $size_header_front = '207px';
-        $size_title = '20px';
-        $col_width = '500px';
-        $td_height = '0px';
+        include locate_template('templates/flyer-parts/flyer-header_back.php');
         break;
 }

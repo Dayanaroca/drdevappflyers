@@ -30,18 +30,7 @@ $icon_youtube_datauri = file_or_url_to_data_uri($icon_youtube);
 $icon_tiktok_datauri = file_or_url_to_data_uri($icon_tiktok);
 
 ?>
-
-<table width="100%" cellpadding="0" cellspacing="0" style="width:100%; box-sizing:border-box; padding:0px 30px 0px 30px; border-top:1px solid #000;">
-    <tr>
-        <!-- LOGO A LA IZQUIERDA -->
-        <td colspan="<?php echo $icon_count; ?>" style="text-align:left; vertical-align:bottom; padding-top:10px;">
-            <?php if (!empty($brand_logo_footer_base64)): ?>
-                <img src="<?php echo $brand_logo_footer_base64; ?>" alt="Logo" style="height:52px; max-height:128px; object-fit:contain;">
-            <?php endif; ?>
-        </td>
-
-       <td style="text-align:right; vertical-align:bottom; padding-top:10px;">
-            <?php 
+ <?php 
             $social_links = [
                 'facebook'  => [$link_facebook, $icon_fb_datauri],
                 'instagram' => [$link_instagram, $icon_instagram_datauri],
@@ -55,7 +44,18 @@ $icon_tiktok_datauri = file_or_url_to_data_uri($icon_tiktok);
             });
             // Contamos los iconos activos
             $icon_count = count($active_social_links);
-            ?>            
+            ?>   
+<table width="100%" cellpadding="0" cellspacing="0" style="width:100%; box-sizing:border-box; padding:0px 30px 0px 30px; border-top:1px solid #000;">
+    <tr>
+        <!-- LOGO A LA IZQUIERDA -->
+        <td colspan="<?php echo $icon_count; ?>" style="text-align:left; vertical-align:bottom; padding-top:10px;">
+            <?php if (!empty($brand_logo_footer_base64)): ?>
+                <img src="<?php echo $brand_logo_footer_base64; ?>" alt="Logo" style="height:52px; max-height:128px; object-fit:contain;">
+            <?php endif; ?>
+        </td>
+
+       <td style="text-align:right; vertical-align:bottom; padding-top:10px;">
+                    
             <table cellpadding="0" cellspacing="0" style="display:inline-table; text-align:right;">
                 <?php if (!empty($site_url) && $icon_count > 0): ?>
                 <tr>

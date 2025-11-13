@@ -58,9 +58,9 @@ function render_manual_selectors($post) {
     // Back template
     // --------------------------------------------------------------------
     $templates_back = [
-        ['id'=>'1','name'=>'Sin imagen','image'=>get_stylesheet_directory_uri().'/assets/images/not_image.png'],
-        ['id'=>'2','name'=>'Con imagen en header','image'=>get_stylesheet_directory_uri().'/assets/images/header_image.png'],
-        ['id'=>'3','name'=>'Con imagen lateral','image'=>get_stylesheet_directory_uri().'/assets/images/side_image.png'],
+        ['id'=>'4','name'=>'Sin imagen','image'=>get_stylesheet_directory_uri().'/assets/images/not_image.png'],
+        ['id'=>'5','name'=>'Con imagen en header','image'=>get_stylesheet_directory_uri().'/assets/images/header_image.png'],
+        ['id'=>'6','name'=>'Con imagen lateral','image'=>get_stylesheet_directory_uri().'/assets/images/side_image.png'],
     ];
 
     echo '<h4>'.esc_html__('Seleccione la plantilla para la segunda página','drdevcustomlanguage').' <span style="color:red;">*</span></h4>';
@@ -81,9 +81,9 @@ function render_manual_selectors($post) {
     // Footer Back end
     // --------------------------------------------------------------------
     $footer_back = [
-        ['id'=>'1','name'=>'Simple','image'=>get_stylesheet_directory_uri().'/assets/images/footer_1.png'],
-        ['id'=>'2','name'=>'Con datos de empresa','image'=>get_stylesheet_directory_uri().'/assets/images/footer_2.png'],
-        ['id'=>'3','name'=>'Con información adicional','image'=>get_stylesheet_directory_uri().'/assets/images/footer_3.png'],
+        ['id'=>'7','name'=>'Simple','image'=>get_stylesheet_directory_uri().'/assets/images/footer_1.png'],
+        ['id'=>'8','name'=>'Con datos de empresa','image'=>get_stylesheet_directory_uri().'/assets/images/footer_2.png'],
+        ['id'=>'9','name'=>'Con información adicional','image'=>get_stylesheet_directory_uri().'/assets/images/footer_3.png'],
     ];
 
     echo '<h4>'.esc_html__('Seleccione la plantilla para el pie de página','drdevcustomlanguage').' <span style="color:red;">*</span></h4>';

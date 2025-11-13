@@ -12,6 +12,14 @@ $inf_footer_col1 = get_field('inf_footer_col1', $post_id);
 $inf_footer_col2   = get_field('inf_footer_col2', $post_id);
 $inf_footer_col3   = get_field('inf_footer_col3', $post_id);
 
+$columns = [
+    !empty($inf_footer_col1),
+    !empty($inf_footer_col2),
+    !empty($inf_footer_col3),
+];
+
+$colspan_count = count(array_filter($columns));
+
 ?>
 
 <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; box-sizing:border-box; padding:0px;">
@@ -39,8 +47,10 @@ $inf_footer_col3   = get_field('inf_footer_col3', $post_id);
         <?php endif; ?>  
     </tr>
     <tr>
-         <td colspan="3" style="padding:0; margin:0;">
+        <?php if ($colspan_count > 0): ?>
+         <td colspan="<?php echo $colspan_count; ?>" style="padding:0; margin:0;">
             <?php include locate_template('templates/flyer-parts/flyer-footer_back.php'); ?>
         </td>
+        <?php endif; ?>
     </tr>
 </table>

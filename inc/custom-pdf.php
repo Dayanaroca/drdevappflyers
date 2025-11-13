@@ -42,7 +42,7 @@ function handle_preview_flyer_pdf() {
     $dompdf = new \Dompdf\Dompdf($options);
     $dompdf->setPaper('letter', 'portrait');
     // DEBUG: salvar HTML completo para inspección
-    @file_put_contents( get_template_directory() . '/dompdf_full_debug.html', $html );
+   // @file_put_contents( get_template_directory() . '/dompdf_full_debug.html', $html );
 
     $dompdf->loadHtml($html);   
     $dompdf->render();

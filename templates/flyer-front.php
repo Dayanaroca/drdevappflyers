@@ -5,25 +5,26 @@ if (!defined('ABSPATH')) exit;
  */
 
 $template_selected_back = intval(get_post_meta($post_id, '_template_selected_back', true)) ?: 1;
-$template_footer_back = intval(get_post_meta($post_id, '_template_footer_back', true)) ?: 1;
+$template_footer_back = intval(get_post_meta($post_id, '_template_footer_back', true)) ?: 7;
 $product_hashtag   = get_post_meta($post_id, 'hashtag', true);
 
 // --- Date brand ---
 $brand_id          = get_post_meta($post_id, '_brand_selected', true);
 $brand_logo        = get_post_meta($brand_id, 'brand_logo', true);
 $brand_logo_color  = get_post_meta($brand_id, 'brand_logo_color', true);
+$brand_color       = get_post_meta($brand_id, 'corporate_color', true) ?: '#000';
 $site_url   = get_post_meta($brand_id, 'site_url', true);
 
 $page_height = '279mm';
  
 switch (intval($template_footer_back)) {
-    case 1:
+    case 7:
         $footer_height_px = 80;
         break;
-    case 2:
+    case 8:
         $footer_height_px = 120;
         break;
-    case 3:
+    case 9:
         $footer_height_px = 160;
         break;
     default:
@@ -61,14 +62,14 @@ $footer_height_mm = $footer_height_px / 3.78;
 <div class="page-back" style="position:relative; width:100%; height: <?php echo $page_height; ?>; margin:0; padding:0; box-sizing:border-box;">
 
   <!-- HEADER -->
-  <?php if ($template_selected_back == 2) : ?>
+  <?php if ($template_selected_back == 5) : ?>
     <div class="back-header" style="width:100%; padding:0; margin:0;">
       <?php include locate_template('templates/flyer-parts/flyer-header_back.php'); ?>
     </div>
   <?php endif; ?>
 
   <!-- BODY -->
-  <?php if ($template_selected_back == 3) : ?>
+  <?php if ($template_selected_back == 6) : ?>
     <div class="back-body" style="padding:0; padding-bottom: <?php echo $footer_height_px; ?>px; box-sizing:border-box; overflow:visible;">
       <?php include locate_template('templates/flyer-parts/flyer-body_v2.php'); ?>
     </div>
@@ -84,11 +85,11 @@ $footer_height_mm = $footer_height_px / 3.78;
 
   <!-- FOOTER FIXED al final de la página -->
   <div class="back-footer" style="position:fixed; bottom:0; left:0; right:0; height:<?php echo $footer_height_px; ?>px; color:#000; text-align:center; font-size:9px; box-sizing:border-box;">
-   <?php if ($template_footer_back == 1) : 
+   <?php if ($template_footer_back == 7) : 
      include locate_template('templates/flyer-parts/flyer-footer_back.php');
-     elseif ($template_footer_back == 2) :
+     elseif ($template_footer_back == 8) :
       include locate_template('templates/flyer-parts/flyer-footer_back_v1.php');
-      elseif ($template_footer_back == 3) :
+      elseif ($template_footer_back == 9) :
       include locate_template('templates/flyer-parts/flyer-footer_back_v2.php');
      endif; 
     ?>
