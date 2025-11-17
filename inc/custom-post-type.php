@@ -62,15 +62,17 @@ add_action('init', 'register_brand_management_post_type');
 // --------------------------------------------------------------------
 // Add PDF button
 // --------------------------------------------------------------------
-add_action('post_submitbox_misc_actions', function() {
-  global $post;
-  if ($post->post_type === 'tourist-product') {
-    echo '<div class="misc-pub-section">
-      <a href="' . admin_url('admin-post.php?action=preview_flyer_pdf&id=' . $post->ID) . '" target="_blank" class="button">Visualizar PDF</a>
-      <a href="' . admin_url('admin-post.php?action=export_flyer_pdf&id=' . $post->ID) . '" class="button button-primary">Exportar PDF</a>
-    </div>';
-  }
-});
+
+
+// add_action('post_submitbox_misc_actions', function() {
+//   global $post;
+//   if ($post->post_type === 'tourist-product') {
+//     echo '<div class="misc-pub-section">
+//       <a href="' . admin_url('admin-post.php?action=preview_flyer_pdf&id=' . $post->ID) . '" target="_blank" class="button">Visualizar PDF</a>
+//       <a href="' . admin_url('admin-post.php?action=export_flyer_pdf&id=' . $post->ID) . '" class="button button-primary">Exportar PDF</a>
+//     </div>';
+//   }
+// });
 // --------------------------------------------------------------------
 // Remove the "Publish and View Change" button
 // --------------------------------------------------------------------

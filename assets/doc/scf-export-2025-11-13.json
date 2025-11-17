@@ -1,0 +1,1297 @@
+[
+    {
+        "key": "group_68de493de9e88",
+        "title": "Campos personalizados flyers",
+        "fields": [
+            {
+                "key": "field_691251700a11f",
+                "label": "Instrucciones para completar la información del encabezado",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Debe completar todos campos obligatorios",
+                "new_lines": "",
+                "esc_html": 0
+            },
+            {
+                "key": "field_68dfc3a8eb9c9",
+                "label": "Imagen de fondo de encabezado",
+                "name": "bg_header",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "Este campo es obligatorio. Puede subir una imagen desde su dispositivo o seleccionar una disponible en la biblioteca.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "allow_in_bindings": 0,
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_68dfbaf1491b9",
+                "label": "Hashtag de la marca",
+                "name": "hashtag",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Este campo es opcional. Ingrese el hashtag asociado a la marca si desea que se muestre en el encabezado del documento. Si lo deja vacío, el hashtag no será incluido.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": 15,
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_690bcecf88486",
+                "label": "Duración del paquete",
+                "name": "duration",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Este campo es opcional. Ingrese la duración del paquete tal como desea que se muestre, por ejemplo: “7 noches \/ 8 días”. La información se visualizará junto a su ícono correspondiente.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": 50,
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_690bcf0c88487",
+                "label": "Ubicación",
+                "name": "accommodation",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Este campo es opcional. Ingrese el nombre de la ubicación o el alojamiento correspondiente, por ejemplo: “Amaite Beach, Blue, Casa Bárbara, Las Nubes”. La información se mostrará acompañada de su ícono correspondiente.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": 50,
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_690bcff088488",
+                "label": "Número mínimo de personas",
+                "name": "minimum_number_of_people",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Este campo es opcional. Indique la cantidad mínima requerida de participantes, por ejemplo: “2 personas”. La información se mostrará acompañada de su ícono correspondiente.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": 50,
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_690bd03088489",
+                "label": "Número máximo de personas",
+                "name": "maximum_number_of_people",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Este campo es opcional. Indique la cantidad máxima permitida de participantes, por ejemplo: “2 personas”. La información se mostrará acompañada de su ícono correspondiente.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": 50,
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_690bd0478848a",
+                "label": "Salidas",
+                "name": "departures",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Este campo es opcional. Ingrese la información relacionada con las salidas del servicio o actividad, por ejemplo: “Salidas garantizadas”. El dato se mostrará junto a su ícono correspondiente.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": 50,
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6912514f0a11e",
+                "label": "Elige si mostrar el \"Desde\" en el precio",
+                "name": "flyer_price_from",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Mostrar \"Desde\"",
+                "default_value": 1,
+                "allow_in_bindings": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_68de4979a48b1",
+                "label": "Selecciona la moneda",
+                "name": "currency",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "Campo obligatorio. Seleccione la moneda en la que se mostrará el precio del producto o servicio. Esta configuración determinará cómo se visualizarán los valores monetarios en el PDF.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "USD": "USD",
+                    "EUR": "EUR",
+                    "MXN": "MXN",
+                    "CUP": "CUP"
+                },
+                "default_value": "Select Currency",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "allow_in_bindings": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "create_options": 0,
+                "save_options": 0
+            },
+            {
+                "key": "field_68de493ea48b0",
+                "label": "Precio",
+                "name": "price",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "min": "",
+                "max": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_68dfbf2798cde",
+                "label": "Tipo de ocupación",
+                "name": "occupation_text",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Campo obligatorio. Indique la modalidad o tipo de ocupación aplicable al precio. Este texto acompañará al valor mostrado en el PDF.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "Por persona en ocupación DBL",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_68de4fa5072b6",
+                "label": "Descripción",
+                "name": "description",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "Campo obligatorio. Complete este campo con la información principal del producto o servicio. El contenido se mostrará como cuerpo de texto en la primera página del PDF.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_68de4e29f43e8",
+                "label": "Itinerario",
+                "name": "itinerary",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_68de4e55f43e9",
+                        "label": "Date",
+                        "name": "date",
+                        "aria-label": "",
+                        "type": "repeater",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "row",
+                        "pagination": 0,
+                        "min": 0,
+                        "max": 0,
+                        "collapsed": "",
+                        "button_label": "Add Row",
+                        "rows_per_page": 20,
+                        "sub_fields": [
+                            {
+                                "key": "field_68de4eeef43eb",
+                                "label": "Itinerary title",
+                                "name": "itinerary_title",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "parent_repeater": "field_68de4e55f43e9"
+                            },
+                            {
+                                "key": "field_68de4f03f43ec",
+                                "label": "Itinerary description",
+                                "name": "itinerary_description",
+                                "aria-label": "",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "allow_in_bindings": 0,
+                                "tabs": "visual",
+                                "toolbar": "basic",
+                                "media_upload": 0,
+                                "delay": 0,
+                                "parent_repeater": "field_68de4e55f43e9"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "field_690caba556d62",
+                "label": "Imagen de fondo header segunda página",
+                "name": "bg_header_back",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "Campo opcional: Este campo no es obligatorio. Puede seleccionar una imagen existente en la galería o subir una desde su dispositivo. La imagen solo se mostrará y será requerida si se selecciona la plantilla que incluye imagen de encabezado para la segunda página del PDF.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "allow_in_bindings": 0,
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_6911febe5b5bd",
+                "label": "Imagen de fondo lateral segunda página",
+                "name": "flyer_bg_side_back",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "Campo opcional: Este campo no es obligatorio. Puede seleccionar una imagen existente en la galería o subir una desde su dispositivo. La imagen solo se mostrará y será requerida si se selecciona la plantilla 3 para la segunda página del PDF. Aparecerá en el lateral de la página.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "allow_in_bindings": 0,
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_68de547f2aec3",
+                "label": "Tabla de contenido",
+                "name": "table_of_contents",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "Campo opcional: \r\nEste campo no es obligatorio. Permite agregar una tabla de contenido de hasta cuatro columnas y tantas filas como necesite. Complete únicamente el contenido de las columnas que requiera. La información se mostrará en la segunda página del PDF, y solo se visualizará si se selecciona la plantilla 1 o 2 para dicha página.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_68de54bc2aec4",
+                        "label": "Column 1",
+                        "name": "column_1",
+                        "aria-label": "",
+                        "type": "group",
+                        "instructions": "Columna 1 – Información principal:\r\nIngrese aquí los elementos que desea incluir en la primera sección de la tabla de contenido. Cada fila representará un ítem independiente, y se visualizará en la primera columna de la tabla en la segunda página del PDF. Complete únicamente los campos que necesite; los vacíos no se mostrarán.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_68de55482aec5",
+                                "label": "Title",
+                                "name": "title",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_68de555a2aec6",
+                                "label": "Contents",
+                                "name": "contents_1",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "row",
+                                "pagination": 0,
+                                "min": 0,
+                                "max": 10,
+                                "collapsed": "field_68de559c2aec7",
+                                "button_label": "Add Row",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_68de559c2aec7",
+                                        "label": "Column 1 Contents",
+                                        "name": "column_1_contents",
+                                        "aria-label": "",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "allow_in_bindings": 0,
+                                        "tabs": "visual",
+                                        "toolbar": "basic",
+                                        "media_upload": 0,
+                                        "delay": 0,
+                                        "parent_repeater": "field_68de555a2aec6"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "key": "field_68de58fb7b658",
+                        "label": "Column 2",
+                        "name": "column_2",
+                        "aria-label": "",
+                        "type": "group",
+                        "instructions": "Columna 2 – Detalles adicionales:\r\nUtilice esta columna para agregar información complementaria relacionada con los elementos de la primera columna. Cada fila debe corresponder con la fila correspondiente de la columna 1. Esta información se mostrará en la segunda columna de la tabla en la segunda página del PDF.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_68de58fb7b659",
+                                "label": "Title",
+                                "name": "title",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_68de58fb7b65a",
+                                "label": "Contents",
+                                "name": "contents_2",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "row",
+                                "pagination": 0,
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Add Row",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_68de58fb7b65b",
+                                        "label": "Column 2 Contents",
+                                        "name": "column_2_contents",
+                                        "aria-label": "",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "allow_in_bindings": 0,
+                                        "tabs": "visual",
+                                        "toolbar": "basic",
+                                        "media_upload": 0,
+                                        "delay": 0,
+                                        "parent_repeater": "field_68de58fb7b65a"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "key": "field_68de59377b65d",
+                        "label": "Column 3",
+                        "name": "column_3",
+                        "aria-label": "",
+                        "type": "group",
+                        "instructions": "Columna 3 – Requisitos o notas importantes:\r\nEsta columna puede contener observaciones, advertencias o requisitos específicos de cada ítem. Cada fila debe alinearse con las filas de las columnas anteriores. Se mostrará como la tercera columna en la segunda página del PDF.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_68de59377b65e",
+                                "label": "Title",
+                                "name": "title",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_68de59377b65f",
+                                "label": "Contents",
+                                "name": "contents_3",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "row",
+                                "pagination": 0,
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "field_68de59377b660",
+                                "button_label": "Add Row",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_68de59377b660",
+                                        "label": "Column 3 Contents",
+                                        "name": "column_3_contents",
+                                        "aria-label": "",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "allow_in_bindings": 0,
+                                        "tabs": "visual",
+                                        "toolbar": "basic",
+                                        "media_upload": 0,
+                                        "delay": 0,
+                                        "parent_repeater": "field_68de59377b65f"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "key": "field_68de59477b661",
+                        "label": "Column 4",
+                        "name": "column_4",
+                        "aria-label": "",
+                        "type": "group",
+                        "instructions": "Columna 4 – Información opcional:\r\nUtilice esta columna para datos adicionales que considere relevantes, como enlaces, referencias o aclaraciones. Su contenido es opcional; si se deja vacío, no se mostrará. Se visualizará en la cuarta columna de la tabla en la segunda página del PDF.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_68de59477b662",
+                                "label": "Title",
+                                "name": "title",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_68de59477b663",
+                                "label": "Contents",
+                                "name": "contents_4",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "row",
+                                "pagination": 0,
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Add Row",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_68de59477b664",
+                                        "label": "Column 4 Contents",
+                                        "name": "column_4_contents",
+                                        "aria-label": "",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "allow_in_bindings": 0,
+                                        "tabs": "visual",
+                                        "toolbar": "basic",
+                                        "media_upload": 0,
+                                        "delay": 0,
+                                        "parent_repeater": "field_68de59477b663"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "key": "field_6911bea415564",
+                "label": "Mostrar Incluye y No incluye en una o dos columnas",
+                "name": "flyer_included_two_columns",
+                "aria-label": "",
+                "type": "radio",
+                "instructions": "Debe seleccionar cómo desea mostrar la información de “Incluye” y “No incluye”.\r\nSi no elige ninguna opción pero completa los campos, la información se mostrará automáticamente en una sola columna. Este campo no es obligatorio.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "Mostrar en una columna": "Mostrar en una columna",
+                    "Mostrar en dos columnas": "Mostrar en dos columnas"
+                },
+                "default_value": "Mostrar en una columna",
+                "return_format": "value",
+                "allow_null": 0,
+                "other_choice": 0,
+                "allow_in_bindings": 0,
+                "layout": "horizontal",
+                "save_other_choice": 0
+            },
+            {
+                "key": "field_68de6776600e3",
+                "label": "Contenido incluye",
+                "name": "items_included",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "Campo opcional:\r\nNo es obligatorio. Puede agregar tantas filas como necesite. El contenido se mostrará en la sección \"Incluye\"; si se deja vacío, no se mostrará nada.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "field_68de67ac600e4",
+                "button_label": "Add Row",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_68de67ac600e4",
+                        "label": "include",
+                        "name": "include",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_68de6776600e3"
+                    }
+                ]
+            },
+            {
+                "key": "field_68de67d3600e5",
+                "label": "Contenido No incluye",
+                "name": "items_not_included",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "Campo opcional:\r\nNo es obligatorio. Puede agregar tantas filas como necesite. El contenido se mostrará en la sección \"No Incluye\"; si se deja vacío, no se mostrará nada.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "field_68de67d3600e6",
+                "button_label": "Add Row",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_68de67d3600e6",
+                        "label": "Not include",
+                        "name": "not_include",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_68de67d3600e5"
+                    }
+                ]
+            },
+            {
+                "key": "field_6911c414f5958",
+                "label": "Observaciones",
+                "name": "flyer_observations",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "Este campo no es obligatorio.\r\nSu contenido se mostrará debajo de la sección “Incluye \/ No incluye”.\r\nSi se completa, aparecerá en el PDF; si se deja vacío, no se mostrará.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_6911e1221784d",
+                "label": "Instrucciones para completar la información del footer:",
+                "name": "",
+                "aria-label": "",
+                "type": "message",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Dependiendo de la plantilla de footer seleccionada, deberá proporcionar la información correspondiente. Asegúrese de rellenar los campos adecuados según la plantilla elegida para garantizar que el footer se muestre correctamente.",
+                "new_lines": "",
+                "esc_html": 0
+            },
+            {
+                "key": "field_6910ded7d24ba",
+                "label": "Información columna 1",
+                "name": "inf_footer_col1",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "Campo opcional:\r\nEste campo no es obligatorio. Solo complete su contenido si ha seleccionado la plantilla 3 para el footer. El contenido ingresado se mostrará en la primera columna del footer.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_6910df64d24bc",
+                "label": "Información columna 2",
+                "name": "inf_footer_col2",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "Campo opcional:\r\nEste campo no es obligatorio. Solo complete su contenido si ha seleccionado la plantilla 3 para el footer. El contenido ingresado se mostrará en la segunda columna del footer.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_6910df74d24bd",
+                "label": "Información columna 3",
+                "name": "inf_footer_col3",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "Campo opcional:\r\nEste campo no es obligatorio. Solo complete su contenido si ha seleccionado la plantilla 3 para el footer. El contenido ingresado se mostrará en la tercera columna del footer.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "tourist-product"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_68de41fe55045",
+        "title": "Campos personalizados Marca",
+        "fields": [
+            {
+                "key": "field_68de41fee15c9",
+                "label": "Logo Blanco de la marca",
+                "name": "brand_logo",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "allow_in_bindings": 0,
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_69105a92fa8c9",
+                "label": "Brand logo footer",
+                "name": "brand_logo_footer",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "allow_in_bindings": 0,
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_68de4326f0e78",
+                "label": "Site URL",
+                "name": "site_url",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 1,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_68de4593f0e7d",
+                "label": "Email",
+                "name": "email",
+                "aria-label": "",
+                "type": "email",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_68de45b8f0e7e",
+                "label": "Phone",
+                "name": "phone",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_68de4374f0e79",
+                "label": "Link Facebook",
+                "name": "link_facebook_",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_68de44e9f0e7a",
+                "label": "Link Instagram",
+                "name": "link_instagram",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_68de450df0e7b",
+                "label": "Link LinkedIn",
+                "name": "link_linkedin",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_68de4523f0e7c",
+                "label": "Link YouTube",
+                "name": "link_youtube",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_68de477a76f8c",
+                "label": "Link TikTok",
+                "name": "link_tiktok",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_68de45c7f0e7f",
+                "label": "Others Links",
+                "name": "others_links",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_68dfb9fc7fb5a",
+                "label": "Color Corporativo",
+                "name": "corporate_color",
+                "aria-label": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#000",
+                "enable_opacity": 0,
+                "return_format": "string",
+                "allow_in_bindings": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "brand-management"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]

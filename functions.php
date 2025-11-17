@@ -19,9 +19,6 @@ function image_id_to_base64($id) {
 /**
  * Convierte un attachment ID, una ruta de archivo local o una URL del theme a data URI válido.
  * Devuelve '' si no puede convertir.
- *
- * @param int|string $source Attachment ID | filesystem path | URL
- * @return string|false 'data:<mime>;base64,...' o '' en caso de error
  */
 function file_or_url_to_data_uri($source) {
     // Si es un ID de attachment
@@ -336,7 +333,10 @@ function mostrar_metabox_personalizado($post) {
             </div>
             <div class="clear"></div>
         </div>
-        
+         <?php if ($post->post_type !== 'tourist-product') {
+            return;
+        }
+        ?>
         <!-- Sección de botones PDF -->
         <div class="misc-pub-section">
             <div style="margin: 10px 0; text-align: center;">
