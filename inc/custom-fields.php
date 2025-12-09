@@ -32,6 +32,63 @@ function render_manual_selectors($post) {
     }
     echo '</select>';
     // --------------------------------------------------------------------
+    // Tarj contact
+    // --------------------------------------------------------------------
+
+    $selected_contact_card = get_post_meta($post->ID, '_contact_card_selected', true);
+
+    echo '<h4>Seleccione la tarjeta de contacto <span style="color:red;">*</span></h4>';
+
+    if (in_array('contact_card', $errors)) {
+        echo '<p style="background:#ffe6e6;border-color:#d12626;color:#cc2727;
+                border-left:3px solid #d12626;padding:6px 12px;position:relative">
+                Por favor seleccione una tarjeta. Este campo es obligatorio.
+            </p>';
+    }
+
+    // Select vacío: se llenará con AJAX
+    echo '<select id="contact-card-select" name="_contact_card_selected" style="width:100%;">';
+    echo '<option value="">Seleccione una marca primero</option>';
+    echo '</select>';
+
+    ?>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const brandSelect = document.querySelector("select[name='_brand_selected']");
+        const contactSelect = document.getElementById("contact-card-select");
+
+        function loadContactCards(brandId, selectedCard = "") {
+            const data = new FormData();
+            data.append('action', 'load_contact_cards');
+            data.append('brand_id', brandId);
+            data.append('selected_card', selectedCard);
+
+            fetch(ajaxurl, { method: "POST", body: data })
+                .then(r => r.text())
+                .then(html => {
+                    contactSelect.innerHTML = html;
+                });
+        }
+
+        // Si ya hay una marca seleccionada, cargar tarjetas al abrir el post
+        <?php if (!empty($selected_brand)) : ?>
+            loadContactCards("<?= $selected_brand ?>", "<?= $selected_contact_card ?>");
+        <?php endif; ?>
+
+        // Cuando cambia la marca
+        brandSelect.addEventListener("change", function() {
+            if (this.value) {
+                loadContactCards(this.value, "");
+            } else {
+                contactSelect.innerHTML = '<option value="">Seleccione una marca primero</option>';
+            }
+        });
+    });
+    </script>
+    <?php
+
+
+    // --------------------------------------------------------------------
     // Front template
     // --------------------------------------------------------------------
     $templates = [
@@ -133,4 +190,46 @@ add_action('save_post_tourist-product', function($post_id) {
             return add_query_arg('manual_error', implode(',', $errors), $location);
         });
     }
+
+   // --- Save contact card ---
+    if (!isset($_POST['_contact_card_selected']) || $_POST['_contact_card_selected'] === '') {
+        $errors[] = 'contact_card';
+    } else {
+        update_post_meta($post_id, '_contact_card_selected', sanitize_text_field($_POST['_contact_card_selected']));
+    }
+
+
 });
+
+add_action('wp_ajax_load_contact_cards', function() {
+
+    if (empty($_POST['brand_id'])) {
+        echo '<option value="">Seleccione una marca</option>';
+        wp_die();
+    }
+
+    $brand_id = intval($_POST['brand_id']);
+    $selected = isset($_POST['selected_card']) ? sanitize_text_field($_POST['selected_card']) : '';
+
+    if (have_rows('tarjeta_de_contacto', $brand_id)) {
+        $index = 0;
+        echo '<option value="">Seleccione una tarjeta</option>';
+
+        while (have_rows('tarjeta_de_contacto', $brand_id)) {
+            the_row();
+            $nombre = get_sub_field('nombre_de_contacto');
+
+            echo '<option value="' . esc_attr($index) . '" ' . selected($selected, $index, false) . '>' .
+                esc_html($nombre) .
+            '</option>';
+
+            $index++;
+        }
+
+    } else {
+        echo '<option value="">No hay tarjetas para esta marca</option>';
+    }
+
+    wp_die();
+});
+

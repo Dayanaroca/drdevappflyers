@@ -11,9 +11,8 @@ if ( empty($itinerary['date']) ) {
     return;
 }
 
-// Título general (solo una vez)
 ?>
-<table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; box-sizing:border-box; padding:10px 30px 0 30px;">
+<table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; box-sizing:border-box; padding:0px 45px 0 45px;">
     <tr>
         <td style="text-align:left; vertical-align:top;">
             <span style="font-size:14px; color:<?php echo $brand_color; ?>; font-weight:700; line-height:15px;">
@@ -33,7 +32,7 @@ foreach ( $itinerary['date'] as $index => $day ) :
 
     // Cada día va en su propia tabla completa
     ?>
-    <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; box-sizing:border-box; padding:0px 30px 0 30px; margin-bottom:6px;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse; box-sizing:border-box; padding:0px 45px 0 45px; margin-bottom:6px;">
         <tr>
             <td style="vertical-align:top; font-size:13px; color:#000; padding-top:10px; line-height:14px;">
                 <?php if ( ! empty( $title ) ) : ?>

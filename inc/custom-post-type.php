@@ -5,8 +5,26 @@ if (!defined('ABSPATH')) exit;
 // CPT Registration
 // --------------------------------------------------------------------
 function register_tourist_product_post_type() {
+    $labels = array(
+        'name'                  => 'Flyers',
+        'singular_name'         => 'Flyer',
+        'menu_name'             => 'Flyers',
+        'name_admin_bar'        => 'Flyer',
+        'add_new'               => 'Añadir Flyer',
+        'add_new_item'          => 'Añadir nuevo Flyer',
+        'edit_item'             => 'Editar Flyer',
+        'new_item'              => 'Nuevo Flyer',
+        'view_item'             => 'Ver Flyer',
+        'search_items'          => 'Buscar Flyers',
+        'not_found'             => 'No se encontraron flyers',
+        'not_found_in_trash'    => 'No hay flyers en la papelera',
+        'all_items'             => 'Todos los Flyers',
+        'archives'              => 'Archivo de Flyers',
+        'attributes'            => 'Atributos del Flyer',
+    );
     register_post_type('tourist-product', [
-        'label' => 'Tourist Products',
+        'label' => 'Flyers',
+        'labels' => $labels,
         'public' => false,
         'publicly_queryable' => false,
         'show_ui' => true,
@@ -31,10 +49,27 @@ function register_tourist_product_post_type() {
     ]);
 }
 add_action('init', 'register_tourist_product_post_type');
-
 function register_brand_management_post_type() {
+    $labels = array(
+        'name'                  => 'Marcas',
+        'singular_name'         => 'Marca',
+        'menu_name'             => 'Marcas',
+        'name_admin_bar'        => 'Marca',
+        'add_new'               => 'Añadir Marca',
+        'add_new_item'          => 'Añadir nueva Marca',
+        'edit_item'             => 'Editar Marca',
+        'new_item'              => 'Nueva Marca',
+        'view_item'             => 'Ver Marca',
+        'search_items'          => 'Buscar Marcas',
+        'not_found'             => 'No se encontraron marcas',
+        'not_found_in_trash'    => 'No hay marcas en la papelera',
+        'all_items'             => 'Todas las Marcas',
+        'archives'              => 'Archivo de Marcas',
+        'attributes'            => 'Atributos de la Marca',
+    );
     register_post_type('brand-management', [
-        'label' => 'Brand Management',
+        'label' => 'Marcas',
+        'labels' => $labels,
         'public' => false,
         'publicly_queryable' => false,
         'show_ui' => true,
@@ -59,20 +94,6 @@ function register_brand_management_post_type() {
     ]);
 }
 add_action('init', 'register_brand_management_post_type');
-// --------------------------------------------------------------------
-// Add PDF button
-// --------------------------------------------------------------------
-
-
-// add_action('post_submitbox_misc_actions', function() {
-//   global $post;
-//   if ($post->post_type === 'tourist-product') {
-//     echo '<div class="misc-pub-section">
-//       <a href="' . admin_url('admin-post.php?action=preview_flyer_pdf&id=' . $post->ID) . '" target="_blank" class="button">Visualizar PDF</a>
-//       <a href="' . admin_url('admin-post.php?action=export_flyer_pdf&id=' . $post->ID) . '" class="button button-primary">Exportar PDF</a>
-//     </div>';
-//   }
-// });
 // --------------------------------------------------------------------
 // Remove the "Publish and View Change" button
 // --------------------------------------------------------------------

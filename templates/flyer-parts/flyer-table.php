@@ -12,7 +12,7 @@ $table_of_contents = get_field('table_of_contents', $post_id);
 if (empty($brand_color) || strtolower($brand_color) === '#000' || strtolower($brand_color) === '#000000') {
     $brand_color_light = '#EFEFEF';
 } else {
-    $brand_color_light = lighten_color($brand_color, 20);
+    $brand_color_light = lighten_color($brand_color, 10);
 }
 if (empty($table_of_contents)) {
     return; 
@@ -53,11 +53,14 @@ foreach ($columns_data as $col) {
 
 // Generar la tabla
 ?>
-<table width="100%" cellpadding="5" cellspacing="0" style="width:100%; padding:10px 30px 0 30px; border-collapse:collapse; border:none;">
+<table width="100%" cellpadding="5" cellspacing="0" style="width:100%; padding:20px 45px 0 45px; border-collapse:collapse; border:none;">
     <tr>
         <?php foreach ($headers as $header): ?>
-            <td style="background:<?php echo $brand_color_light; ?>; vertical-align:middle; text-align:center; padding:5px; font-size: 14px; font-weight: 600; line-height:15px; border:none;">
-                <?php echo esc_html($header); ?>
+            <td style="position:relative; background:<?php echo $brand_color_light; ?>; vertical-align:middle; text-align:center; padding:5px; font-size: 14px; font-weight: 600; line-height:15px; border:none;">
+                <div style="position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(255,255,255,0.6); z-index:1;"></div>
+                <span style="position:relative; z-index:2;">
+                    <?php echo esc_html($header); ?>
+                </span>
             </td>
         <?php endforeach; ?>
     </tr>

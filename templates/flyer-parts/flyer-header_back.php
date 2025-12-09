@@ -15,7 +15,11 @@ $bg_base64_back = image_id_to_base64($bg_header_back);
     <tr style="padding:0; margin:0; height:207px;">
         <td style="padding:0; margin:0;">
             <?php if (!empty($bg_base64_back)): ?>
-                <img src="<?php echo esc_attr($bg_base64_back); ?>" alt="Background" style="width:100%; height:207px; object-fit:cover; display:block;">
+                <div style="position:relative; width:100%; height:207px; overflow:hidden;">
+                    <img src="<?php echo esc_attr($bg_base64_back); ?>" 
+                        alt="Background"
+                        style="width:100%; height:100%; object-fit:cover; object-position:center; position:absolute; top:0; left:0; z-index:0; display:block;">
+                </div>
             <?php else: ?>
                 <p class="drdev-error">
                     <?= esc_html__('Se ha seleccionado la plantilla con imagen de encabezado para esta página, pero el archivo no es válido o no se ha establecido correctamente.', 'drdevsalaprensa'); ?>
@@ -24,3 +28,4 @@ $bg_base64_back = image_id_to_base64($bg_header_back);
         </td>
     </tr>
 </table>
+

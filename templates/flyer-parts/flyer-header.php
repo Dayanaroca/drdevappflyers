@@ -24,6 +24,9 @@ $bg_header         = get_post_meta($post_id, 'bg_header', true); // ID
 $flyer_price_from  = get_post_meta($post_id, 'flyer_price_from', true);
 $bg_base64 = image_id_to_base64($bg_header);
 $logo_base64 = image_id_to_base64($brand_logo);
+$gradient = get_stylesheet_directory() . '/assets/images/gradient_etg.png';
+$data_uri_gradient = file_or_url_to_data_uri( $gradient );
+
 
 switch (intval($template_selected)) {
     case 1:
@@ -60,7 +63,7 @@ switch (intval($template_selected)) {
         [ 'icon'   => get_stylesheet_directory_uri() . '/assets/icons/flag.svg', 'label'  => '', 'meta'   => 'departures'],
     ];
 ?>
-<div style="position:relative; height:<?php echo $size_header_front; ?>; overflow:hidden;">
+<div style="position:relative; height:<?php echo $size_header_front; ?>; overflow:hidden; margin-bottom:40px;">
     <!-- Fondo -->
     <?php if (!empty($bg_base64)): ?>
         <img src="<?php echo esc_attr($bg_base64); ?>" 
@@ -69,15 +72,20 @@ switch (intval($template_selected)) {
     <?php endif; ?>
 
     <!-- Overlay -->
-    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:1;"></div>
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:1;">
+        
+    </div>
+    <!-- <img src="<?php echo esc_attr($data_uri_gradient); ?>" 
+             alt="Background" 
+             style="width:100%; height:20%; object-fit:cover; position:absolute; bottom:0; left:0; z-index:0; display:block;"> -->
 
     <!-- Contenido superior: logo + hashtag -->
-    <div style="position:absolute; top:20px; left:30px; right:30px; z-index:2;">
+    <div style="position:absolute; top:20px; left:45px; right:45px; z-index:2;">
         <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td style="text-align:left;">
                     <?php if (!empty($product_hashtag)): ?>
-                        <span style="font-size:11px; color:#fff; font-weight:600;">
+                        <span style="font-size:14px; color:#fff; font-weight:600;">
                             <?php echo esc_html($product_hashtag); ?>
                         </span>
                     <?php endif; ?>
@@ -86,7 +94,7 @@ switch (intval($template_selected)) {
                     <?php if (!empty($logo_base64)): ?>
                         <img src="<?php echo $logo_base64; ?>" 
                              alt="Logo" 
-                             style="height:45px; max-height:45px; object-fit:contain;">
+                             style="max-width:200px; max-height:100px; object-fit:contain;">
                     <?php endif; ?>
                 </td>
             </tr>
@@ -94,7 +102,7 @@ switch (intval($template_selected)) {
     </div>
 
     <!-- Contenido inferior: título + precio + info -->
-    <div style="position:absolute; bottom:15px; left:30px; right:30px; z-index:2;">
+    <div style="position:absolute; bottom:30px; left:45px; right:45px; z-index:2;">
         <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td style="vertical-align:bottom; color:#fff;">

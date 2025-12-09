@@ -34,7 +34,7 @@ $icon_not_included_datauri = file_or_url_to_data_uri($icon_not_included);
 
 <?php if (!$two_columns): ?>
 <!-- UNA COLUMNA -->
-<table width="100%" cellpadding="0" cellspacing="0" style="width:100%; padding:10px 30px 10px 30px; border-collapse:collapse;">
+<table width="100%" cellpadding="0" cellspacing="0" style="width:100%; padding:10px 45px 10px 45px; border-collapse:collapse;">
     <?php if (!empty($items_included)): ?>
     <tr>
         <td style="font-family:'Inter', sans-serif; font-size:13px; line-height:14px; vertical-align:top; font-weight:500; padding:4px 0;">
@@ -81,7 +81,7 @@ $icon_not_included_datauri = file_or_url_to_data_uri($icon_not_included);
 
 <?php else: ?>
 <!-- DOS COLUMNAS -->
-<table width="100%" cellpadding="0" cellspacing="0" style="width:100%; padding:10px 30px 10px 30px; border-collapse:collapse;">
+<table width="100%" cellpadding="0" cellspacing="0" style="width:100%; padding:10px 45px 10px 45px; border-collapse:collapse;">
     <tr>
         <!-- Columna Izquierda: Incluye + Observaciones -->
         <td width="50%" style="font-family:'Inter', sans-serif; font-size:13px; line-height:14px; vertical-align:top; font-weight:500; padding:4px 10px 4px 0;">
