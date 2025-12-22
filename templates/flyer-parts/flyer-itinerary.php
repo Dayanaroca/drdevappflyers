@@ -16,7 +16,7 @@ if ( empty($itinerary['date']) ) {
     <tr>
         <td style="text-align:left; vertical-align:top;">
             <span style="font-size:14px; color:<?php echo $brand_color; ?>; font-weight:700; line-height:15px;">
-                <?php echo esc_html__('Itinerario', 'drdevsalaprensa'); ?>
+                <?php echo esc_html__('Itinerario', 'drdevflyers'); ?>
             </span>
         </td>
     </tr>

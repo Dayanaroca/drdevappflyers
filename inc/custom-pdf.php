@@ -16,6 +16,7 @@ add_action('admin_post_export_flyer_pdf', 'handle_export_flyer_pdf');
 // --------------------------------------------------------------------
 function handle_preview_flyer_pdf() {
     require_once ABSPATH . 'wp-content/themes/drdevappflyers/vendor/autoload.php';
+	load_theme_textdomain('drdevflyers', WP_LANG_DIR . '/wpml');
 
     if (empty($_GET['id'])) {
         wp_die('Post ID not specified.');
@@ -25,7 +26,20 @@ function handle_preview_flyer_pdf() {
     if (!$post_id) {
         wp_die('Invalid post ID.');
     }
+	
+	// Forzar idioma correcto
+$post_lang_details = apply_filters('wpml_post_language_details', null, $post_id);
+$lang_code = $post_lang_details['language_code'] ?? 'es';
+if (function_exists('icl_object_id') && isset($lang_code)) {
+    global $sitepress;
+    $sitepress->switch_lang($lang_code);
+}
 
+// Ahora las traducciones __() usarán el idioma correcto
+error_log("Idioma del PDF: " . $lang_code);
+error_log("TRADUCCION TEST duration: " . __('Duración:', 'drdevflyers'));
+
+	
     $html = generate_flyer_html($post_id);
     if (empty($html)) {
         wp_die('The HTML for the flyer could not be generated.');
@@ -48,10 +62,9 @@ function handle_preview_flyer_pdf() {
     $dompdf->render();
     $page_count = $dompdf->getCanvas()->get_page_count();
 
-    // if ($page_count > 2) {
-    //     // Mostrar alerta y no generar PDF
-    //     wp_die('El contenido excede las dos páginas. Por favor revise el contenido o cambie la plantilla.');
-    // }
+    //  if ($page_count > 2) {
+    //      wp_die('El contenido excede las dos páginas. Por favor revise el contenido o cambie la plantilla.');
+    //  }
     $dompdf->stream('flyer-preview.pdf', ['Attachment' => false]);
     exit;
 }

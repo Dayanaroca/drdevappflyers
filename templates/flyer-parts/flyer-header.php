@@ -22,8 +22,8 @@ $occupation_text   = get_post_meta($post_id, 'occupation_text', true);
 $logo_color_option = get_post_meta($post_id, '_logo_color', true) ?: 'White';
 $bg_header         = get_post_meta($post_id, 'bg_header', true); // ID 
 $flyer_price_from  = get_post_meta($post_id, 'flyer_price_from', true);
-$bg_base64 = image_id_to_base64($bg_header);
-$logo_base64 = image_id_to_base64($brand_logo);
+$bg_base64 = image_id_to_base64_safe($bg_header);
+$logo_base64 = image_id_to_base64_safe($brand_logo);
 $gradient = get_stylesheet_directory() . '/assets/images/gradient_etg.png';
 $data_uri_gradient = file_or_url_to_data_uri( $gradient );
 
@@ -63,21 +63,11 @@ switch (intval($template_selected)) {
         [ 'icon'   => get_stylesheet_directory_uri() . '/assets/icons/flag.svg', 'label'  => '', 'meta'   => 'departures'],
     ];
 ?>
-<div style="position:relative; height:<?php echo $size_header_front; ?>; overflow:hidden; margin-bottom:40px;">
-    <!-- Fondo -->
-    <?php if (!empty($bg_base64)): ?>
-        <img src="<?php echo esc_attr($bg_base64); ?>" 
-             alt="Background" 
-             style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; z-index:0; display:block;">
-    <?php endif; ?>
+<div style="position:relative; height:<?php echo $size_header_front; ?>; overflow:hidden; margin-bottom:40px; background-image: url('<?php echo get_attached_file($bg_header); ?>'); background-size:cover; background-position:center center; background-repeat:no-repeat;">
 
     <!-- Overlay -->
-    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:1;">
-        
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:1;">    
     </div>
-    <!-- <img src="<?php echo esc_attr($data_uri_gradient); ?>" 
-             alt="Background" 
-             style="width:100%; height:20%; object-fit:cover; position:absolute; bottom:0; left:0; z-index:0; display:block;"> -->
 
     <!-- Contenido superior: logo + hashtag -->
     <div style="position:absolute; top:20px; left:45px; right:45px; z-index:2;">
@@ -141,12 +131,13 @@ switch (intval($template_selected)) {
                     <?php endif; endforeach; ?>
                 </td>
                 <td style="width:120px; vertical-align:bottom;">
+                    <?php if (!empty(($flyer_price_from || $flyer_price_from === "1")) || (!empty($price) && !empty($currency)) || (!empty($occupation_text))): ?>
                     <table valign="middle" cellspacing="0" cellpadding="0" style="background-color:#fff; color:#000; padding:6px 5px; border-radius:4px;">
                         <?php if (!empty($flyer_price_from) && ($flyer_price_from === "1")): ?>
                         <tr>
                             <td>                                            
                                 <p style="margin:0; font-weight:bold; font-size:11px; line-height:1">
-                                    <?php echo esc_html__('Desde:', 'drdevsalaprensa'); ?>
+                                    <?php echo esc_html__('Desde:', 'drdevflyers'); ?>
                                 </p>                                           
                             </td>
                         </tr>
@@ -170,7 +161,8 @@ switch (intval($template_selected)) {
                             <?php endif; ?>
                            </td>
                         </tr>
-                    </table>                                    
+                    </table>  
+                    <?php endif; ?>                                  
                 </td>
             </tr>
         </table>

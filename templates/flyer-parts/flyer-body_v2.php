@@ -13,8 +13,9 @@ $flyer_bg_side_back_base64 = image_id_to_base64($flyer_bg_side_back);
 <table width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin:0; padding:0;">
     <tr>
         <td width="50%" style="border-collapse:collapse; margin:0; padding:0; width:50%;">
-             <?php if (!empty($bg_base64_back)): ?>
-                <img src="<?php echo esc_attr($flyer_bg_side_back_base64); ?>" alt="Background" style="width:100%; height:100%; object-fit:cover; display:block;"> 
+             <?php if (!empty($flyer_bg_side_back_base64)): ?>
+                <div style="position:relative; width:100%; height:100%; overflow:hidden; background-image: url('<?php echo get_attached_file($flyer_bg_side_back); ?>'); background-size:cover; background-position:center center; background-repeat:no-repeat;">
+                </div>
             <?php else: ?>
                 <p class="drdev-error">
                     <?= esc_html__('Se ha seleccionado la plantilla con imagen de encabezado para esta página, pero el archivo no es válido o no se ha establecido correctamente.', 'drdevsalaprensa'); ?>

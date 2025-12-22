@@ -212,6 +212,18 @@ function drdev_adisplay_custom_metabox($post) {
                 ?>
             </div>
             <div class="clear"></div>
+            <?php if ( $post->post_type === 'tourist-product' ) { ?>
+                <div class="misc-pub-section">
+                    <div style="margin: 10px 0; text-align: center;">
+                        <a href="<?php echo admin_url('admin-post.php?action=preview_flyer_pdf&id=' . $post->ID); ?>" target="_blank" class="button" style="margin-bottom: 5px; width: 100%; text-align: center;">
+                            📄 Visualizar PDF
+                        </a>
+                        <a href="<?php echo admin_url('admin-post.php?action=export_flyer_pdf&id=' . $post->ID); ?>" class="button button-primary" style="width: 100%; text-align: center;">
+                            💾 Exportar PDF
+                        </a>
+                    </div>
+                </div>
+            <?php } ?>              
         </div>
     </div>
     <?php

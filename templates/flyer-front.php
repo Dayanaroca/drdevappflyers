@@ -79,6 +79,12 @@ if (have_rows('tarjeta_de_contacto', $brand_id)) {
     }
 }
 
+$description   = get_post_meta($post_id, 'description', true);
+$table_of_contents = get_field('table_of_contents', $post_id);
+$items_included       = get_field('items_included', $post_id);        // repeater
+$items_not_included   = get_field('items_not_included', $post_id);    // repeater
+$flyer_observations   = get_field('flyer_observations', $post_id); 
+$bg_header_back = get_post_meta($post_id, 'bg_header_back', true); // ID 
 ?>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -88,9 +94,10 @@ if (have_rows('tarjeta_de_contacto', $brand_id)) {
 <table width="100%" style="page-break-after:always; border-collapse:collapse; width:100%; height:100%;">
   <tr>
     <td valign="top" style="padding:0;">
-      <?php include locate_template('templates/flyer-parts/flyer-header.php'); ?>
-      <?php include locate_template('templates/flyer-parts/flyer-descriptions.php'); ?>
-      <?php
+      <?php include locate_template('templates/flyer-parts/flyer-header.php'); 
+       if (!empty($description)) {
+          include locate_template('templates/flyer-parts/flyer-descriptions.php'); 
+        }
         ob_start();
         include locate_template('templates/flyer-parts/flyer-itinerary.php');
         $itinerary_html = ob_get_clean();

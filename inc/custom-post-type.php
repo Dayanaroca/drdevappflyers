@@ -120,3 +120,35 @@ add_action('add_meta_boxes', function() {
         'high'
     );
 });
+// --------------------------------------------------------------------
+// filter tax
+// --------------------------------------------------------------------
+add_action('restrict_manage_posts', function() {
+    global $typenow;
+    $taxonomy = 'mercadooficina'; // Cambia por el slug real de tu taxonomía
+    $post_type = 'tourist-product';
+
+    if ($typenow !== $post_type) {
+        return;
+    }
+
+    $terms = get_terms([
+        'taxonomy' => $taxonomy,
+        'hide_empty' => false,
+    ]);
+
+    if ($terms) {
+        $current_v = isset($_GET[$taxonomy]) ? $_GET[$taxonomy] : '';
+        echo '<select name="' . $taxonomy . '" id="' . $taxonomy . '" class="postform">';
+        echo '<option value="">' . __('Filtrar por Mercado / Oficina') . '</option>';
+        foreach ($terms as $term) {
+            printf(
+                '<option value="%s"%s>%s</option>',
+                esc_attr($term->slug),
+                selected($current_v, $term->slug, false),
+                esc_html($term->name)
+            );
+        }
+        echo '</select>';
+    }
+});

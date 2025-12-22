@@ -9,15 +9,6 @@ License: GNU General Public License v2 or later
 Text Domain: drdevappflyers
 */
 
-/* @media print {
-    .flyer-a4 {
-        width: 210mm;
-        height: 297mm;
-        margin: 0 auto;
-        page-break-after: always; 
-    }
-} */
-
 @page {
   size: letter;
   margin: 0mm; 
@@ -94,4 +85,8 @@ table, tr, td, div {
 }
 #backtoblog {
   display: none !important;
+}
+.page-back {
+    padding: 0;
+    margin: 0;
 }

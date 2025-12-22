@@ -39,7 +39,7 @@ $icon_not_included_datauri = file_or_url_to_data_uri($icon_not_included);
     <tr>
         <td style="font-family:'Inter', sans-serif; font-size:13px; line-height:14px; vertical-align:top; font-weight:500; padding:4px 0;">
             <div style="font-weight:700; margin-bottom:4px; font-size:14px; line-height:15px; color:<?php echo $brand_color; ?>">
-                <?php esc_html_e('Incluye', 'drdevcustomlanguage'); ?>
+                <?php esc_html_e('Incluye', 'drdevflyers'); ?>
             </div>
             <?php foreach ($items_included as $row): ?>
                 <div style="margin-bottom:3px; display:flex; align-items:flex-start;">
@@ -55,7 +55,7 @@ $icon_not_included_datauri = file_or_url_to_data_uri($icon_not_included);
     <tr>
         <td style="font-family:'Inter', sans-serif; font-size:13px; line-height:14px; vertical-align:top; font-weight:500; padding-top:6px;">
             <div style="font-weight:700; margin-bottom:4px; font-size:14px; line-height:15px; color:<?php echo $brand_color; ?>;">
-                <?php esc_html_e('No Incluye', 'drdevcustomlanguage'); ?>
+                <?php esc_html_e('No Incluye', 'drdevflyers'); ?>
             </div>
             <?php foreach ($items_not_included as $row): ?>
                 <div style="margin-bottom:3px; display:flex; align-items:flex-start;">
@@ -71,7 +71,7 @@ $icon_not_included_datauri = file_or_url_to_data_uri($icon_not_included);
     <tr>
         <td style="font-family:'Inter', sans-serif; vertical-align:top; padding-top:8px;">
             <div style="font-weight:700; margin-bottom:4px; font-size:14px; line-height:15px; color:<?php echo $brand_color; ?>">
-                <?php esc_html_e('Observaciones', 'drdevcustomlanguage'); ?>
+                <?php esc_html_e('Observaciones', 'drdevflyers'); ?>
             </div>
             <div style="font-size:13px; line-height:14px; font-weight:normal;"><?php echo wp_kses_post($flyer_observations); ?></div>
         </td>
@@ -87,7 +87,7 @@ $icon_not_included_datauri = file_or_url_to_data_uri($icon_not_included);
         <td width="50%" style="font-family:'Inter', sans-serif; font-size:13px; line-height:14px; vertical-align:top; font-weight:500; padding:4px 10px 4px 0;">
             <?php if (!empty($items_included)): ?>
                 <div style="font-weight:700; margin-bottom:4px; font-size:14px; line-height:15px; color:<?php echo $brand_color; ?>;">
-                    <?php esc_html_e('Incluye', 'drdevcustomlanguage'); ?>
+                    <?php esc_html_e('Incluye', 'drdevflyers'); ?>
                 </div>
                 <?php foreach ($items_included as $row): ?>
                     <div style="margin-bottom:3px; display:flex; align-items:flex-start;">
@@ -96,21 +96,13 @@ $icon_not_included_datauri = file_or_url_to_data_uri($icon_not_included);
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
-
-            <?php if (!empty($flyer_observations)): ?>
-                <div style="height:6px;"></div>
-                <div style="font-weight:700; margin-bottom:4px; font-size:14px; line-height:15px; color:<?php echo $brand_color; ?>;">
-                    <?php esc_html_e('Observaciones', 'drdevcustomlanguage'); ?>
-                </div>
-                <div style="font-size:13px; line-height:14px; font-weight:normal;"><?php echo wp_kses_post($flyer_observations); ?></div>
-            <?php endif; ?>
         </td>
 
         <!-- Columna Derecha: No Incluye -->
         <td width="50%" style="font-family:'Inter', sans-serif; font-size:13px; line-height:14px; vertical-align:top; font-weight:500; padding:4px 0 4px 10px;">
             <?php if (!empty($items_not_included)): ?>
                 <div style="font-weight:700; margin-bottom:4px; font-size:14px; line-height:15px; color:<?php echo $brand_color; ?>;">
-                    <?php esc_html_e('No Incluye', 'drdevcustomlanguage'); ?>
+                    <?php esc_html_e('No Incluye', 'drdevflyers'); ?>
                 </div>
                 <?php foreach ($items_not_included as $row): ?>
                     <div style="margin-bottom:3px; display:flex; align-items:flex-start;">
@@ -118,6 +110,17 @@ $icon_not_included_datauri = file_or_url_to_data_uri($icon_not_included);
                         <span style="vertical-align:top; font-weight:normal;"><?php echo esc_html($row['not_include']); ?></span>
                     </div>
                 <?php endforeach; ?>
+            <?php endif; ?>
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" colspan="2" style="font-family:'Inter', sans-serif; font-size:13px; line-height:14px; vertical-align:top; font-weight:500; padding:4px 10px 4px 0;">
+             <?php if (!empty($flyer_observations)): ?>
+                <div style="height:6px;"></div>
+                <div style="font-weight:700; margin-bottom:4px; font-size:14px; line-height:15px; color:<?php echo $brand_color; ?>;">
+                    <?php esc_html_e('Observaciones', 'drdevflyers'); ?>
+                </div>
+                <div style="font-size:13px; line-height:14px; font-weight:normal;"><?php echo wp_kses_post($flyer_observations); ?></div>
             <?php endif; ?>
         </td>
     </tr>

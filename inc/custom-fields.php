@@ -12,20 +12,25 @@ function render_manual_selectors($post) {
     // --------------------------------------------------------------------
     // Brand
     // --------------------------------------------------------------------
+    $post_lang = apply_filters('wpml_post_language_details', NULL, $post->ID);
+    $lang_code = $post_lang['language_code']; // ejemplo: 'es', 'en', 'de', etc.
+
     $brands = get_posts([
         'post_type'      => 'brand-management',
         'posts_per_page' => -1,
         'post_status'    => 'publish',
         'orderby'        => 'title',
-        'order'          => 'ASC'
+        'order'          => 'ASC',
+        'lang'           => $lang_code, 
+		'suppress_filters' => false
     ]);
-
+	
     echo '<h4>'.esc_html__('Seleccione la marca','drdevcustomlanguage').' <span style="color:red;">*</span></h4>';
     if(in_array('brand', $errors)) {
         echo '<p style="background: #ffe6e6; border-color: #d12626; color: #cc2727; border-left: 3px solid #d12626; padding: 6px 12px; position: relative">Por favor seleccione una marca. Este campo es obligatorio.</p>';
     }
     echo '<select name="_brand_selected" style="width: 100%;">';
-    echo '<option value="">Select a brand</option>';
+    echo '<option value="">Seleccione una marca</option>';
     foreach ($brands as $brand) {
         $selected = ($selected_brand == $brand->ID) ? 'selected' : '';
         echo '<option value="' . $brand->ID . '" ' . $selected . '>' . $brand->post_title . '</option>';
@@ -233,3 +238,24 @@ add_action('wp_ajax_load_contact_cards', function() {
     wp_die();
 });
 
+function drdev_register_custom_fields_for_wpml() {
+
+    $fields = [
+        '_brand_selected',
+        '_template_selected',
+        '_template_selected_back',
+        '_template_footer_back',
+        '_contact_card_selected',
+    ];
+
+    foreach ($fields as $field) {
+        register_meta('post', $field, [
+            'type'              => 'string',
+            'single'            => true,
+            'show_in_rest'      => false,
+            'sanitize_callback' => 'sanitize_text_field',
+            'auth_callback'     => function() { return current_user_can('edit_posts'); }
+        ]);
+    }
+}
+add_action('init', 'drdev_register_custom_fields_for_wpml');

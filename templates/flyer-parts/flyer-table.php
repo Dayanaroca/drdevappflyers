@@ -14,8 +14,40 @@ if (empty($brand_color) || strtolower($brand_color) === '#000' || strtolower($br
 } else {
     $brand_color_light = lighten_color($brand_color, 10);
 }
-if (empty($table_of_contents)) {
-    return; 
+$has_real_content = false;
+
+if (!empty($table_of_contents)) {
+    for ($i = 1; $i <= 4; $i++) {
+        $col_key = "column_{$i}";
+        if (empty($table_of_contents[$col_key])) {
+            continue;
+        }
+
+        $col = $table_of_contents[$col_key];
+
+        // Título con texto
+        if (!empty(trim($col['title'] ?? ''))) {
+            $has_real_content = true;
+            break;
+        }
+
+        // Contenido del repeater
+        $repeater_key = "contents_{$i}";
+        $subfield_key = "column_{$i}_contents";
+
+        if (!empty($col[$repeater_key])) {
+            foreach ($col[$repeater_key] as $row) {
+                if (!empty(trim(wp_strip_all_tags($row[$subfield_key] ?? '')))) {
+                    $has_real_content = true;
+                    break 2;
+                }
+            }
+        }
+    }
+}
+
+if (!$has_real_content) {
+    return;
 }
 
 $headers = [];
